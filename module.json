@@ -1,14 +1,14 @@
 {
-  "id": "module",
-  "title": "New Module",
-  "description": "",
+  "id": "token-rotation-lock",
+  "title": "Token Rotation Lock",
+  "description": "Locks token rotation to 90-degree increments (0°, 90°, 180°, 270°). Any rotation outside these angles snaps to the closest allowed angle.",
   "version": "#{VERSION}#",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10,
-    "maximum": 11
+    "minimum": 14,
+    "verified": 14,
+    "maximum": 14
   },
   "authors": [
     {

@@ -1,3 +1,9 @@
 {
-    "MODULE.hello": "hello"
+    "TOKENROTATIONLOCK.EnabledName": "Enable Module",
+    "TOKENROTATIONLOCK.EnabledHint": "Master toggle for the entire module. When off, rotation lock is disabled everywhere.",
+    "TOKENROTATIONLOCK.DefaultLockedName": "Lock by Default",
+    "TOKENROTATIONLOCK.DefaultLockedHint": "Default rotation lock state for scenes that have not been explicitly configured.",
+    "TOKENROTATIONLOCK.RotationLock": "Token Rotation Lock",
+    "TOKENROTATIONLOCK.LockRotation": "Lock Token Rotation",
+    "TOKENROTATIONLOCK.SceneConfigHint": "Force tokens in this scene to rotate only in 90-degree increments (0°, 90°, 180°, 270°)."
 }
