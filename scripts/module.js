@@ -51,6 +51,25 @@ Hooks.on("preUpdateToken", (tokenDoc, changes, options, userId) => {
   if (!isRotationLocked(scene)) return;
 
   changes.rotation = snapRotation(changes.rotation);
+
+  // Sync About Face indicator direction to snapped rotation.
+  // About Face stores direction as rotation + 90 (pointing "down" by default).
+  // Order-independent: if About Face runs first with unsnapped rotation,
+  // we correct it here; if we run first, About Face recalculates from our
+  // snapped value and arrives at same result.
+  foundry.utils.setProperty(changes, "flags.about-face.direction", changes.rotation + 90);
+});
+
+Hooks.on("updateToken", (tokenDoc, changes, options, userId) => {
+  if (!game.settings.get(MODULE_ID, "enabled")) return;
+  if (changes.rotation === undefined) return;
+
+  const scene = tokenDoc.parent;
+  if (!isRotationLocked(scene)) return;
+
+  // Refresh canvas token so About Face indicator redraws with correct angle.
+  const token = canvas?.tokens?.get(tokenDoc.id);
+  if (token) token.refresh();
 });
 
 Hooks.on("renderSceneConfig", (app, html, data) => {
